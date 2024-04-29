@@ -170,6 +170,7 @@ export class World
 					onClose: () => {
 						UIManager.setUserInterfaceVisible(true);
 						document.querySelector<HTMLElement>(".wallet-page").style.display = "flex";
+						document.querySelector<HTMLElement>(".price-page").style.display = "flex";
 					}
 					
 				});
