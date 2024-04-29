@@ -1,0 +1,242 @@
+
+.wallet-page,
+.buy-stash,
+.race,
+.ready,
+.go {
+	position: fixed;
+	display: flex;
+	z-index: 100;
+	width: 100%;
+}
+
+.ready {
+	bottom: 265px;
+}
+
+.wallet-content {
+	position: relative;
+	top: 100px;
+	width: 426px;
+	height: 539px;
+	background-color: #34639A60;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.wallet-content p {
+	margin: 10px;
+}
+
+.wallet-text {
+	font-size: 30px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bolder;
+	color: white;
+	text-align: center;
+	text-shadow: none !important;
+}
+
+#btn-wallet {
+	width: 350px;
+	height: 79px;
+	border: 6px solid #30C823;
+	font-size: 25px;
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.stash-page {
+	position: relative;
+	top: 170px;
+	width: 699px;
+	height: 339px;
+	background-color: #34639A60;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bolder;
+	text-shadow: none !important;
+	color: white;
+	text-align: center;
+}
+
+.race-page {
+	position: relative;
+	margin: auto;
+	display: flex;
+	width: 699px;
+	height: 339px;
+	top: 200px;
+	background-color: #34639A60;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bolder;
+	text-shadow: none !important;
+	color: white;
+	text-align: center;
+}
+
+.ready-page {
+	position: relative;
+	margin: auto;
+	display: flex;
+	width: 699px;
+	height: 339px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bolder;
+	text-shadow: none !important;
+	color: white;
+	text-align: center;
+}
+
+.ticket-number>input {
+	padding: 0 7px;
+	font-size: 30px;
+	text-align: center;
+	font-family: inherit;
+	font-weight: bold;
+	text-shadow: none !important;
+	margin: 10px;
+}
+
+#btn-stash {
+	width: 179px;
+	height: 79px;
+	font-size: 23px;
+	cursor: pointer;
+}
+
+#btn-race,
+#btn-ready {
+	width: 179px;
+	height: 79px;
+	font-size: 28px;
+	cursor: pointer;
+}
+
+.price-page {
+	position: fixed;
+	display: flex;
+	justify-content: end;
+	z-index: 100;
+	width: 100%;
+}
+
+.price-pool {
+	width: 365px;
+	height: 94px;
+	background-color: #9A843473;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	margin-top: 25px;
+	margin-right: 21px;
+	text-shadow: none !important;
+}
+
+.state-page {
+	position: fixed;
+	display: flex;
+	justify-content: start;
+	z-index: 100;
+	width: 100%;
+}
+
+.state-content {
+	width: 466px;
+	height: 48px;
+	background-color: #34639A60;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-family: system-ui;
+	font-size: 13px;
+	text-shadow: none !important;
+}
+
+.state-content>div {
+	background-color: white;
+	padding: 5px 18px;
+	color: black;
+}
+
+.price-pool>div {
+	height: 28px;
+	background-color: #D9D9D9;
+	border: 1px solid #C8A423;
+	line-height: 14px;
+	font-size: 13px;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: system-ui;
+}
+
+table {
+	background-color: #B9B9B9;
+	color: black;
+	font-family: system-ui;
+	font-size: 14px;
+	text-shadow: none !important;
+	font-weight: 500;
+	border-collapse: collapse;
+	width: 595px;
+}
+
+thead {
+	height: 30px;
+}
+
+tbody {
+	height: 50px;
+	background-color: #78FB4A;
+}
+
+tbody td:hover {
+	background-color: #F1F615;
+	border: 1px solid #8c8d46;
+}
+
+tbody td:nth-child(3) {
+	background-color: #F1F615;
+}
+
+th {
+	border-right: 1px solid #7e7c7c;
+}
+
+.go {
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	display: flex;
+}
+
+.go-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 702px;
+	height: 184px;
+	background-color: #D9D9D9;
+	color: black;
+	font-size: 64px;
+}
