@@ -42,10 +42,23 @@ let web3Modal: Web3Modal;
 let provider: any;
 let selectedAccount: string;
 
+let isKeyDisabled: boolean = true;
+
+function handleKeyEvent(event: KeyboardEvent): boolean | void {
+  if (isKeyDisabled) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  }
+}
+
 web3Modal = new Web3Modal({
   cacheProvider: false,
   disableInjectedProvider: false,
 });
+
+document.body.addEventListener("keydown", handleKeyEvent);
+document.body.addEventListener("keyup", handleKeyEvent);
 
 export class World {
   public renderer: THREE.WebGLRenderer;
@@ -686,9 +699,9 @@ export class World {
   }
 
   public async onConnect(): Promise<void> {
-    console.log(123);
     try {
       provider = await web3Modal.connect();
+      isKeyDisabled = false;
     } catch (err) {
       console.log("Could not get a wallet connection", err);
     }
