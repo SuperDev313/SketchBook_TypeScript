@@ -555,10 +555,6 @@ export class World {
 		</div>
 		`).appendTo("body");
 
-    $("#btn-wallet").click(async () => {
-      await this.onConnect();
-    });
-
     $(`
 		<div class="price-page">
 			<div class="price-pool">
@@ -569,18 +565,77 @@ export class World {
 		</div>
 		`).appendTo("body");
 
+    $(`	
+		<div class="state-page">
+			<div class="state-content">
+				<div style="border: 2px solid #30C823;">Player Wallet ID</div>
+				<div style="border: 2px solid #C8A423;">STASH 1666</div>
+				<div style="border: 2px solid #C8A423;">RACE POINTS 0</div>
+				<div style="border: 2px solid #C8A423;">RANk 0</div>
+			</div>
+		</div>
+	`).appendTo("body");
+
+    $(`
+		<div class="buy-stash">
+			<div class="stash-page">
+				<p style="font-size: 30px;">Race Entry Fee $</p>
+				<div style="font-size: 23px; display: flex; align-items: center;">
+					<p>Enter Number of Tickets</p>
+					<div style="margin-left: 30px;" class="ticket-number">
+						<input type="text" name="ticket-number" value="0" size="1">
+					</div>
+				</div>
+				<div style="padding-left: 266px; padding-top: 16px;">
+					<button id="btn-stash">BUY STASH</button>
+				</div>
+			</div>
+		</div>
+		`).appendTo("body");
+
+    $(`
+		<div class="race">
+			<div class="race-page">
+				<p style="font-size: 30px;">Get Ready to Race!</p>
+				<div style="padding-top: 16px;">
+					<button id="btn-race" style="font-family: revert;">RACE!</button>
+				</div>
+			</div>
+		</div>
+		`).appendTo("body");
+
+    $("#btn-wallet").click(async () => {
+      await this.onConnect();
+      document.querySelector<HTMLElement>(".wallet-page").style.display =
+        "none";
+      document.querySelector<HTMLElement>(".buy-stash").style.display = "flex";
+      document.querySelector<HTMLElement>(".state-page").style.display = "flex";
+    });
+
+    $("#btn-stash").click(async () => {
+      document.querySelector<HTMLElement>(".buy-stash").style.display = "none";
+      document.querySelector<HTMLElement>(".race").style.display = "flex";
+    });
+
     // Canvas
     document.body.appendChild(this.renderer.domElement);
     this.renderer.domElement.id = "canvas";
   }
-  
+
   public async onConnect(): Promise<void> {
     console.log(123);
     try {
       provider = await web3Modal.connect();
-
     } catch (err) {
       console.log("Could not get a wallet connection", err);
+    }
+  }
+
+  public async onDisconnect() {
+    if (provider.close) {
+      await provider.close();
+      await web3Modal.clearCachedProvider();
+      provider = null;
     }
   }
 
