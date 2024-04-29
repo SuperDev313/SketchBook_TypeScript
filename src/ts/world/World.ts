@@ -540,8 +540,7 @@ export class World {
 			</div>
 		`).appendTo("body");
 
-    $(`
-		<div class="wallet-page">
+    $(`<div class="wallet-page">
 			<div class="wallet-content">
 				<div class="wallet-text">
 					<p>Prize Pool $125</p>
@@ -555,8 +554,7 @@ export class World {
 		</div>
 		`).appendTo("body");
 
-    $(`
-		<div class="price-page">
+    $(`<div class="price-page">
 			<div class="price-pool">
 				<div style="width: 122px;">PRIZE POOL $278
 				</div>
@@ -565,8 +563,7 @@ export class World {
 		</div>
 		`).appendTo("body");
 
-    $(`	
-		<div class="state-page">
+    $(`<div class="state-page">
 			<div class="state-content">
 				<div style="border: 2px solid #30C823;">Player Wallet ID</div>
 				<div style="border: 2px solid #C8A423;">STASH 1666</div>
@@ -576,8 +573,7 @@ export class World {
 		</div>
 	`).appendTo("body");
 
-    $(`
-		<div class="buy-stash">
+    $(`<div class="buy-stash">
 			<div class="stash-page">
 				<p style="font-size: 30px;">Race Entry Fee $</p>
 				<div style="font-size: 23px; display: flex; align-items: center;">
@@ -593,8 +589,7 @@ export class World {
 		</div>
 		`).appendTo("body");
 
-    $(`
-		<div class="race">
+    $(`<div class="race">
 			<div class="race-page">
 				<p style="font-size: 30px;">Get Ready to Race!</p>
 				<div style="padding-top: 16px;">
@@ -603,6 +598,53 @@ export class World {
 			</div>
 		</div>
 		`).appendTo("body");
+
+	$(`<div class="ready">
+		<div class="ready-page">
+			<div style="padding-top: 16px;">
+				<button id="btn-ready" style="font-family: revert; border: 3px solid #7ADE2B;">Ready</button>
+			</div>
+			<div style="margin-top: 45px;">
+				<table>
+					<thead>
+						<tr>
+							<th>Player1</th>
+							<th>Player2</th>
+							<th>Player3</th>
+							<th>Player4</th>
+							<th>Player5</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr>
+							<td>READY</td>
+							<td>READY</td>
+							<td>DISCONNECT IN <br>5,4,3,2,1</td>
+							<td>READY</td>
+							<td>READY</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	`).appendTo("body");
+
+	$(`<div class="go">
+		<div style="display: flex; justify-content: center; align-items: center;">
+			<div class="go-content">
+				<div id="countNum">
+					<p>3.. 2.. 1.. GO!</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	`).appendTo("body");
+	
 
     $("#btn-wallet").click(async () => {
       await this.onConnect();
