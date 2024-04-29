@@ -599,7 +599,7 @@ export class World {
 		</div>
 		`).appendTo("body");
 
-	$(`<div class="ready">
+    $(`<div class="ready">
 		<div class="ready-page">
 			<div style="padding-top: 16px;">
 				<button id="btn-ready" style="font-family: revert; border: 3px solid #7ADE2B;">Ready</button>
@@ -632,7 +632,7 @@ export class World {
 	</div>
 	`).appendTo("body");
 
-	$(`<div class="go">
+    $(`<div class="go">
 		<div style="display: flex; justify-content: center; align-items: center;">
 			<div class="go-content">
 				<div id="countNum">
@@ -644,7 +644,6 @@ export class World {
 
 	</div>
 	`).appendTo("body");
-	
 
     $("#btn-wallet").click(async () => {
       await this.onConnect();
@@ -652,6 +651,28 @@ export class World {
         "none";
       document.querySelector<HTMLElement>(".buy-stash").style.display = "flex";
       document.querySelector<HTMLElement>(".state-page").style.display = "flex";
+    });
+
+    $("#btn-race").click(async () => {
+      document.querySelector<HTMLElement>(".race").style.display = "none";
+      document.querySelector<HTMLElement>(".ready").style.display = "flex";
+    });
+
+    $("#btn-ready").click(async () => {
+      document.querySelector<HTMLElement>(".ready").style.display = "none";
+      document.querySelector<HTMLElement>(".go").style.display = "flex";
+      const countNum: HTMLElement | null = document.getElementById("countNum");
+      let cnt: number = 3;
+      const interval = setInterval(() => {
+        countNum.innerHTML = `<p>${cnt ? cnt : "Go!"}</p>`;
+        cnt--;
+        if (cnt < 0) {
+          clearInterval(interval);
+          setTimeout(() => {
+            document.querySelector<HTMLElement>(".go").style.display = "none";
+          }, 1000);
+        }
+      }, 1000);
     });
 
     $("#btn-stash").click(async () => {
