@@ -538,6 +538,16 @@ export class World
 		</div>
 		`).appendTo('body');
 
+		$(`
+		<div class="price-page">
+			<div class="price-pool">
+				<div style="width: 122px;">PRIZE POOL $278
+				</div>
+				<div style="width: 219px; margin-top:5px;">DAILY TOURNAMENT EDNS 4:33:01</div>
+			</div>
+		</div>
+		`).appendTo('body');
+
 		// Canvas
 		document.body.appendChild(this.renderer.domElement);
 		this.renderer.domElement.id = 'canvas';
