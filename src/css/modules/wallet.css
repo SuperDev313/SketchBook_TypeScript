@@ -3,7 +3,8 @@
 .buy-stash,
 .race,
 .ready,
-.go {
+.go,
+.screen {
 	position: fixed;
 	display: flex;
 	z-index: 100;
@@ -239,4 +240,23 @@ th {
 	background-color: #D9D9D9;
 	color: black;
 	font-size: 64px;
+}
+
+.screen-content {
+	display: flex;
+	text-align: center;
+	font-size: 30px;
+	font-family: system-ui;
+}
+
+.screen-content>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#screen-race, #screen-elaspsed {
+	background-color: #2CBACE;
+	width: 451px;
+	height: 79px;
 }
