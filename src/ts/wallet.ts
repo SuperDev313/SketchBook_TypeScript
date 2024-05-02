@@ -31,6 +31,7 @@ export class Wallet {
     $(".race").hide();
     $(".ready").hide();
     $(".go").hide();
+    $(".screen").hide();
   }
 
   private generateHTML(): void {
@@ -138,6 +139,22 @@ export class Wallet {
     </div>
     `).appendTo("body");
 
+    $(`<div class="screen">
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <div class="screen-content">
+          <div id="screen-race">
+            <div>02:00:00</div>
+            <div>Race Length</div>
+          </div>
+          <div id="screen-elaspsed">
+            <div>00:00:00</div>
+            <div>Elaspsed Length</div>          
+          </div>
+         </div>
+        </div>
+      </div>
+  `).appendTo("body");
+
     $("#btn-wallet").click(async () => {
       await this.onConnect();
 
@@ -154,6 +171,7 @@ export class Wallet {
     $("#btn-ready").click(async () => {
       $(".ready").hide();
       $(".go").show();
+      $(".screen").show();
       const countNum: HTMLElement | null = document.getElementById("countNum");
       let cnt: number = 3;
       const interval = setInterval(() => {
@@ -172,6 +190,7 @@ export class Wallet {
       $(".buy-stash").hide();
       $(".race").show();
     });
+
   }
 
   public async onConnect(): Promise<void> {
