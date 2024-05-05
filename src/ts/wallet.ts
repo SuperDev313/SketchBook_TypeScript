@@ -32,6 +32,8 @@ export class Wallet {
     $(".ready").hide();
     $(".go").hide();
     $(".screen").hide();
+    $(".rank").hide();
+    $(".resultTable").hide();
   }
 
   private generateHTML(): void {
@@ -134,7 +136,6 @@ export class Wallet {
                     <p>3.. 2.. 1.. GO!</p>
                 </div>
             </div>
-
         </div>
     </div>
     `).appendTo("body");
@@ -143,17 +144,64 @@ export class Wallet {
       <div style="display: flex; justify-content: center; align-items: center;">
         <div class="screen-content">
           <div id="screen-race">
-            <div>02:00:00</div>
+            <div style="width: 180px; display: flex; justify-content: center">
+              <div>
+                02:00:00
+              </div>
+            </div>
             <div>Race Length</div>
           </div>
           <div id="screen-elaspsed">
-            <div>00:00:00</div>
+            <div style="width: 180px; display: flex; justify-content: center">
+            <div>
+              00:00:00
+            </div>
+          </div>
             <div>Elaspsed Length</div>          
           </div>
          </div>
         </div>
       </div>
   `).appendTo("body");
+
+    $(`<div class="rank">
+        <div class="rank-content">
+            <div>
+              <img src="/src/img/rankFlag.png" alt="Rank Flag" style="filter: none !important;">
+            </div>
+            <div style="color: black; font-size: 30px; padding-left: 5rem"> Rank 1</div>
+        </div>
+      </div>
+    `).appendTo("body");
+
+    $(`
+      <div class="resultTable">
+        <div class="resultTable-page">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                    <p>Wallet:</p>
+                    <p>0x6890...</p>
+                </td>
+                <td>
+                    <p>Rank</p>
+                    <p>1</p>
+                </td>
+                <td>
+                    <p>Finish Time:</p>
+                    <p> 01:31:00</p>
+                </td>
+                <td>
+                    <p>Race ID:</p>
+                    <p> 17899A</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `).appendTo("body");
 
     $("#btn-wallet").click(async () => {
       await this.onConnect();
@@ -172,6 +220,7 @@ export class Wallet {
       $(".ready").hide();
       $(".go").show();
       $(".screen").show();
+
       const countNum: HTMLElement | null = document.getElementById("countNum");
       let cnt: number = 3;
       const interval = setInterval(() => {
@@ -181,6 +230,8 @@ export class Wallet {
           clearInterval(interval);
           setTimeout(() => {
             document.querySelector<HTMLElement>(".go").style.display = "none";
+            $(".rank").show();
+            $(".resultTable").show();
           }, 1000);
         }
       }, 1000);
@@ -190,7 +241,6 @@ export class Wallet {
       $(".buy-stash").hide();
       $(".race").show();
     });
-
   }
 
   public async onConnect(): Promise<void> {
