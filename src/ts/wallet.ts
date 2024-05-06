@@ -34,6 +34,8 @@ export class Wallet {
     $(".screen").hide();
     $(".rank").hide();
     $(".resultTable").hide();
+    $(".raceAgain").hide();
+    $("#resultPrice").hide();
   }
 
   private generateHTML(): void {
@@ -53,9 +55,48 @@ export class Wallet {
 
     $(`<div class="price-page">
         <div class="price-pool">
-            <div style="width: 122px;">PRIZE POOL $278
+            <div id="initPrice">
+              <div style="width: 122px;" class="priceDiv">PRIZE POOL $278
+              </div>
+              <div style="width: 219px; margin-top:5px;" class="priceDiv">DAILY TOURNAMENT EDNS 4:33:01</div>
             </div>
-            <div style="width: 219px; margin-top:5px;">DAILY TOURNAMENT EDNS 4:33:01</div>
+            <div id="resultPrice">
+              <div style="display:flex">
+                <div style="width: 122px;" class="priceDiv">PRIZE POOL $278
+                </div>
+                <div style="width: 219px; margin-left: 13px;" class="priceDiv">DAILY TOURNAMENT ID 2389</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                <div class="priceDiv" style="padding: 0 15px;">DAILY TOURNAMENT ENDS 4:33:01
+                </div>
+                <div class="priceDiv" style="padding: 0 47px;">RESULTS</div>
+              </div>
+              <div id="lastTable">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Rank</th>
+                      <th>Ports</th>
+                      <th>Wallet</th>
+                      <th>Username</th>
+                      <th>Payout STASH</th>
+                      <th>USDC Conversion</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
         </div>
     </div>
     `).appendTo("body");
@@ -174,8 +215,7 @@ export class Wallet {
       </div>
     `).appendTo("body");
 
-    $(`
-      <div class="resultTable">
+    $(`<div class="resultTable">
         <div class="resultTable-page">
           <table>
             <tbody>
@@ -203,6 +243,13 @@ export class Wallet {
       </div>
     `).appendTo("body");
 
+    $(`<div class="raceAgain">
+        <div class="raceAgain-page">
+          <button id="raceBtn">RACE AGAIN!</button>
+        </div>
+      </div>
+    `).appendTo("body");
+
     $("#btn-wallet").click(async () => {
       await this.onConnect();
 
@@ -214,6 +261,11 @@ export class Wallet {
     $("#btn-race").click(async () => {
       $(".race").hide();
       $(".ready").show();
+    });
+
+    $("#btn-stash").click(async () => {
+      $(".buy-stash").hide();
+      $(".race").show();
     });
 
     $("#btn-ready").click(async () => {
@@ -232,14 +284,14 @@ export class Wallet {
             document.querySelector<HTMLElement>(".go").style.display = "none";
             $(".rank").show();
             $(".resultTable").show();
+            $(".raceAgain").show();
+            $("#initPrice").hide();
+            $("#resultPrice").show();
+            // $("#price-pool").
+
           }, 1000);
         }
       }, 1000);
-    });
-
-    $("#btn-stash").click(async () => {
-      $(".buy-stash").hide();
-      $(".race").show();
     });
   }
 
